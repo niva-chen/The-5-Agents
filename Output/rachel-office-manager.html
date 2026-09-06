@@ -1,0 +1,886 @@
+<title>מנהלת משרד ברחלי נדל״ן</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@400;500;700&display=swap">
+
+<style>
+:root{
+  --ink:#1B242E;
+  --ink-soft:#46535E;
+  --muted:#6E7A82;
+  --ground:#F4F5F2;
+  --surface:#FFFFFF;
+  --surface-2:#FAFBF9;
+  --rule:#DCE0D9;
+  --rule-soft:#E9EBE5;
+  --accent:#2E5F5B;
+  --accent-ink:#204340;
+  --accent-soft:#E3EDEA;
+  --open:#8C5D07;
+  --open-soft:#F7EFDC;
+  --open-rule:#E4D2A8;
+  --shadow:0 1px 2px rgba(27,36,46,.05), 0 8px 24px -16px rgba(27,36,46,.22);
+  --step--1:.8125rem;
+  --step-0:1.0625rem;
+  --step-1:1.25rem;
+  --step-2:1.5rem;
+  --step-3:1.95rem;
+  --step-4:2.6rem;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ink:#E7EBE6;
+    --ink-soft:#BAC4BD;
+    --muted:#8D978F;
+    --ground:#11171A;
+    --surface:#181F22;
+    --surface-2:#1D2528;
+    --rule:#2C3639;
+    --rule-soft:#242D30;
+    --accent:#7FBDB3;
+    --accent-ink:#A8D5CC;
+    --accent-soft:#1B2E2C;
+    --open:#DDAE55;
+    --open-soft:#2C2416;
+    --open-rule:#4A3C1D;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --ink:#E7EBE6;
+  --ink-soft:#BAC4BD;
+  --muted:#8D978F;
+  --ground:#11171A;
+  --surface:#181F22;
+  --surface-2:#1D2528;
+  --rule:#2C3639;
+  --rule-soft:#242D30;
+  --accent:#7FBDB3;
+  --accent-ink:#A8D5CC;
+  --accent-soft:#1B2E2C;
+  --open:#DDAE55;
+  --open-soft:#2C2416;
+  --open-rule:#4A3C1D;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  direction:rtl;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Assistant","Segoe UI",system-ui,sans-serif;
+  font-size:var(--step-0);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+.shell{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 20px 96px;
+}
+@media (min-width:1080px){
+  .shell{grid-template-columns:minmax(0,1fr) 232px; gap:56px; align-items:start}
+}
+main{min-width:0}
+
+/* ---------- masthead ---------- */
+.masthead{
+  padding:56px 0 34px;
+  border-bottom:2px solid var(--ink);
+  margin-bottom:44px;
+}
+.eyebrow{
+  font-family:"Heebo",sans-serif;
+  font-size:var(--step--1);
+  font-weight:500;
+  letter-spacing:.14em;
+  color:var(--accent);
+  margin:0 0 18px;
+}
+h1{
+  font-family:"Frank Ruhl Libre","Times New Roman",serif;
+  font-weight:900;
+  font-size:var(--step-4);
+  line-height:1.12;
+  letter-spacing:-.01em;
+  text-wrap:balance;
+  margin:0 0 16px;
+}
+.standfirst{
+  font-size:var(--step-1);
+  color:var(--ink-soft);
+  max-width:62ch;
+  margin:0 0 28px;
+  font-weight:300;
+}
+.byline{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px 26px;
+  font-family:"Heebo",sans-serif;
+  font-size:var(--step--1);
+  color:var(--muted);
+}
+.byline b{color:var(--ink-soft);font-weight:500}
+
+/* ---------- section nav ---------- */
+.railwrap{display:none}
+@media (min-width:1080px){
+  .railwrap{display:block;position:sticky;top:32px;padding-top:60px}
+}
+.rail{
+  border-inline-start:1px solid var(--rule);
+  padding-inline-start:16px;
+}
+.rail p{
+  font-family:"Heebo",sans-serif;
+  font-size:.72rem;
+  letter-spacing:.14em;
+  color:var(--muted);
+  margin:0 0 14px;
+}
+.rail a{
+  display:block;
+  font-size:.9rem;
+  line-height:1.4;
+  color:var(--ink-soft);
+  text-decoration:none;
+  padding:6px 0;
+  border-bottom:1px solid var(--rule-soft);
+}
+.rail a:last-child{border-bottom:0}
+.rail a:hover,.rail a:focus-visible{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.rail a span{
+  font-family:"Heebo",sans-serif;
+  font-variant-numeric:tabular-nums;
+  color:var(--muted);
+  margin-inline-end:8px;
+}
+
+/* ---------- sections ---------- */
+section{margin:0 0 60px;scroll-margin-top:24px}
+.sechead{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  border-bottom:1px solid var(--rule);
+  padding-bottom:10px;
+  margin-bottom:26px;
+}
+.secnum{
+  font-family:"Heebo",sans-serif;
+  font-variant-numeric:tabular-nums;
+  font-weight:700;
+  font-size:var(--step-0);
+  color:var(--accent);
+  flex:none;
+}
+h2{
+  font-family:"Frank Ruhl Libre",serif;
+  font-weight:700;
+  font-size:var(--step-3);
+  line-height:1.2;
+  margin:0;
+  text-wrap:balance;
+}
+h3{
+  font-family:"Frank Ruhl Libre",serif;
+  font-weight:700;
+  font-size:var(--step-2);
+  line-height:1.3;
+  margin:38px 0 12px;
+  text-wrap:balance;
+}
+h4{
+  font-family:"Heebo",sans-serif;
+  font-weight:700;
+  font-size:var(--step-0);
+  margin:26px 0 8px;
+}
+p{margin:0 0 16px;max-width:68ch}
+ul,ol{margin:0 0 16px;padding-inline-start:1.25em;max-width:68ch}
+li{margin:.32em 0}
+li::marker{color:var(--accent)}
+a{color:var(--accent-ink);text-underline-offset:3px}
+strong{font-weight:600}
+.lead{font-size:var(--step-1);font-weight:300;color:var(--ink-soft);max-width:64ch}
+
+/* ---------- chips ---------- */
+.chip{
+  display:inline-block;
+  font-family:"Heebo",sans-serif;
+  font-size:.72rem;
+  font-weight:500;
+  letter-spacing:.06em;
+  padding:2px 9px;
+  border-radius:3px;
+  vertical-align:.15em;
+  white-space:nowrap;
+}
+.chip-set{background:var(--accent-soft);color:var(--accent-ink);border:1px solid transparent}
+.chip-open{background:var(--open-soft);color:var(--open);border:1px solid var(--open-rule)}
+
+/* ---------- cards / panels ---------- */
+.stack{display:flex;flex-direction:column;gap:18px;margin:0 0 22px}
+.panel{
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-radius:6px;
+  padding:22px 24px;
+  box-shadow:var(--shadow);
+}
+.panel > :last-child{margin-bottom:0}
+.panel h4{margin-top:0}
+.panel-open{
+  background:var(--open-soft);
+  border-color:var(--open-rule);
+  box-shadow:none;
+}
+.note{
+  border-inline-start:3px solid var(--accent);
+  background:var(--surface-2);
+  padding:14px 18px;
+  border-radius:0 4px 4px 0;
+  color:var(--ink-soft);
+  margin:0 0 22px;
+  max-width:68ch;
+}
+.note > :last-child{margin-bottom:0}
+
+/* ---------- responsibility blocks ---------- */
+.duty{
+  border-top:1px solid var(--rule);
+  padding-top:18px;
+  margin-top:26px;
+}
+.duty:first-of-type{border-top:0;padding-top:0;margin-top:0}
+.duty-head{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.duty-head h4{margin:0}
+.duty-key{
+  font-family:"Heebo",sans-serif;
+  font-weight:700;
+  color:var(--accent);
+  flex:none;
+}
+
+/* ---------- tables ---------- */
+.tablewrap{overflow-x:auto;margin:0 0 22px;border:1px solid var(--rule);border-radius:6px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;min-width:520px;font-size:.95rem}
+th,td{text-align:start;padding:11px 16px;border-bottom:1px solid var(--rule-soft);vertical-align:top}
+thead th{
+  font-family:"Heebo",sans-serif;
+  font-size:.76rem;
+  letter-spacing:.1em;
+  font-weight:500;
+  color:var(--muted);
+  background:var(--surface-2);
+  border-bottom:1px solid var(--rule);
+  white-space:nowrap;
+}
+tbody tr:last-child td{border-bottom:0}
+td.day{font-family:"Heebo",sans-serif;font-weight:700;white-space:nowrap;width:1%}
+td.hours{font-family:"Heebo",sans-serif;font-variant-numeric:tabular-nums;white-space:nowrap}
+
+/* ---------- checklists ---------- */
+.checkbar{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  flex-wrap:wrap;
+  font-family:"Heebo",sans-serif;
+  font-size:var(--step--1);
+  color:var(--muted);
+  margin:0 0 14px;
+}
+.checkbar output{font-variant-numeric:tabular-nums;color:var(--ink-soft);font-weight:500}
+.btn{
+  font:inherit;
+  font-family:"Heebo",sans-serif;
+  font-size:var(--step--1);
+  color:var(--ink-soft);
+  background:var(--surface);
+  border:1px solid var(--rule);
+  border-radius:4px;
+  padding:4px 12px;
+  cursor:pointer;
+}
+.btn:hover{border-color:var(--accent);color:var(--accent-ink)}
+.checklist{list-style:none;margin:0 0 8px;padding:0;max-width:68ch}
+.checklist li{margin:0;border-bottom:1px solid var(--rule-soft)}
+.checklist li:last-child{border-bottom:0}
+.checklist label{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:12px;
+  align-items:start;
+  padding:10px 2px;
+  cursor:pointer;
+}
+.checklist input{
+  appearance:none;
+  inline-size:18px;
+  block-size:18px;
+  margin:5px 0 0;
+  border:1.5px solid var(--rule);
+  border-radius:3px;
+  background:var(--surface);
+  display:grid;
+  place-content:center;
+  cursor:pointer;
+  flex:none;
+}
+.checklist input::after{
+  content:"";
+  inline-size:9px;
+  block-size:9px;
+  transform:scale(0);
+  background:var(--surface);
+  clip-path:polygon(14% 44%,0 65%,40% 100%,100% 16%,80% 0,38% 62%);
+  transition:transform .12s ease;
+}
+.checklist input:checked{background:var(--accent);border-color:var(--accent)}
+.checklist input:checked::after{transform:scale(1)}
+.checklist input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.checklist input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-thickness:1px}
+.checklist .q{display:block}
+.checklist .why{
+  display:block;
+  font-size:.86rem;
+  color:var(--muted);
+  margin-top:2px;
+}
+@media (prefers-reduced-motion:reduce){
+  .checklist input::after{transition:none}
+}
+
+/* ---------- ad slot ---------- */
+.slot{
+  border:1.5px dashed var(--rule);
+  border-radius:6px;
+  padding:26px 24px;
+  background:var(--surface-2);
+  text-align:center;
+}
+.slot p{margin-inline:auto}
+.slot .slotlabel{
+  font-family:"Heebo",sans-serif;
+  font-size:.76rem;
+  letter-spacing:.12em;
+  color:var(--muted);
+  margin-bottom:10px;
+}
+.slot .slotlink{
+  font-family:"Heebo",sans-serif;
+  font-size:var(--step-1);
+  color:var(--muted);
+  word-break:break-all;
+}
+
+/* ---------- flow steps ---------- */
+.flow{list-style:none;padding:0;margin:0 0 22px;counter-reset:f;max-width:68ch}
+.flow li{
+  counter-increment:f;
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:14px;
+  padding:10px 0;
+  border-bottom:1px solid var(--rule-soft);
+  margin:0;
+}
+.flow li:last-child{border-bottom:0}
+.flow li::before{
+  content:counter(f);
+  font-family:"Heebo",sans-serif;
+  font-variant-numeric:tabular-nums;
+  font-size:.8rem;
+  font-weight:700;
+  color:var(--accent);
+  background:var(--accent-soft);
+  inline-size:24px;
+  block-size:24px;
+  border-radius:50%;
+  display:grid;
+  place-content:center;
+  margin-top:3px;
+}
+
+/* ---------- signature ---------- */
+.sig{
+  margin-top:56px;
+  padding-top:26px;
+  border-top:2px solid var(--ink);
+  font-size:var(--step--1);
+  color:var(--muted);
+  font-family:"Heebo",sans-serif;
+}
+.sig b{display:block;font-size:var(--step-0);color:var(--ink);font-weight:700;margin-bottom:2px}
+
+@media print{
+  body{background:#fff}
+  .railwrap,.checkbar{display:none}
+  .panel,.tablewrap{box-shadow:none;break-inside:avoid}
+  section{break-inside:auto}
+}
+</style>
+
+<div class="shell">
+<main>
+
+  <header class="masthead">
+    <p class="eyebrow">רחלי נדל״ן · המשך לדוח האבחון, אוגוסט 2026</p>
+    <h1>מנהלת המשרד: הגדרת התפקיד ושגרות העבודה</h1>
+    <p class="standfirst">מה בדיוק התפקיד כולל, מה נשאר אצלך ואצל קרן, איך נראית שגרת העבודה בפועל, ואילו שאלות לשאול את הממליצים אחרי שתחליטי על מועמדת.</p>
+    <div class="byline">
+      <span>נכתב עבור <b>רחלי אוחיון</b></span>
+      <span>מאת <b>ניבה חן</b>, מסדרת עסקים</span>
+      <span>ספטמבר 2026</span>
+    </div>
+  </header>
+
+  <!-- 1 -->
+  <section id="s1">
+    <div class="sechead"><span class="secnum">1</span><h2>למה המסמך הזה</h2></div>
+    <p class="lead">באבחון הגדרנו שהשלב הבא אינו עוד מערכת, אלא הפיכת הידע והתהליכים שכבר קיימים אצלך לדרך עבודה ברורה. הגדרת תפקיד מנהלת המשרד היא הצעד שהופך את זה לאפשרי.</p>
+    <p>הידע על גבעת זאב, על השכונות, על חוקיות הפרסום ועל מה שקורה עם כל נכס נמצא היום אצלך ואצל קרן. כל עוד הוא לא כתוב, אי אפשר להעביר אותו הלאה, ומי שתיכנס לתפקיד תהיה תלויה בך בכל שאלה.</p>
+    <p>המסמך הזה עושה שלושה דברים: מגדיר את התפקיד ואת גבולותיו, כותב את שגרות העבודה כפי שהן צריכות להתנהל, ונותן לך את השאלות לשיחה עם הממליצים. הוא נשען על דוח האבחון, על השאלות שנשלחו לנדב ועל מה שעברנו יחד.</p>
+    <div class="note">
+      <p><strong>מה מסומן ומה עוד לא.</strong> לאורך המסמך מופיעים שני סימונים. <span class="chip chip-set">מוגדר</span> הוא סעיף שסגור וניתן להעביר אותו כמו שהוא. <span class="chip chip-open">להחלטה</span> הוא סעיף שדורש הכרעה שלך או תשובה מנדב לפני שהוא נכנס לתפקיד. כל הסעיפים הפתוחים מרוכזים גם בסעיף 6.</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section id="s2">
+    <div class="sechead"><span class="secnum">2</span><h2>הגדרת התפקיד</h2></div>
+
+    <h3>מהות התפקיד</h3>
+    <p>מנהלת המשרד אחראית על כך שכל נכס שנכנס לבלעדיות יוצא לפרסום מלא באותו יום ובכל הערוצים, שכל פנייה שנכנסת מקבלת חזרה ומתועדת בהומלי, ושבכל רגע אפשר לראות מהמערכת מה מצב הנכסים והלידים בלי לשאול אותך.</p>
+    <p>היא מפעילה תבניות, חוקיות ותהליכים שהוגדרו מראש. ההחלטות המקצועיות, התמחור והייצוג מול לקוחות נשארים אצלך ואצל קרן.</p>
+
+    <h3>תחומי האחריות</h3>
+
+    <div class="duty">
+      <div class="duty-head"><span class="duty-key">א</span><h4>קליטת נכס חדש והוצאתו לפרסום</h4><span class="chip chip-set">מוגדר</span></div>
+      <p>מתחיל ברגע שקרן העלתה את הנכס להומלי. כל מה שאחרי זה הוא באחריות מנהלת המשרד, ונסגר באותו יום.</p>
+      <ul>
+        <li>העלאת הנכס ליד2, לאתר רשות היחיד וליוטיוב.</li>
+        <li>הכנת שלוש מודעות בקאנבה, אחת לכל אחת משלוש התבניות המאושרות, עם תמונות שונות בכל תבנית, ושמירתן בתיקיית הנכס.</li>
+        <li>פתיחת אלבום גוגל לנכס הכולל את התמונות, המודעה והסרטון. שם האלבום הוא שם הרחוב והעיר בלבד, ללא מספר בית.</li>
+        <li>תזמון הסרטון ליוטיוב, הזנתו בהומלי תחת קבצים מצורפים, לחיצה על מספר 1 ואז שיתוף דירה חדשה.</li>
+        <li>הכנת לינק ייעודי לסוכן הדיגיטלי, הנושא את מספר הנכס מתוך הומלי.</li>
+        <li>פתיחת קבוצת וואטסאפ לנכס.</li>
+        <li>הזנת הנכס בגיליון מעקב הפרסומים על כל שדותיו.</li>
+        <li>הכנת טיוטת התאמות בהומלי, ולאחר אישורך, הרצת הקמפיין ושליחת דף הנחיתה של הנכס.</li>
+      </ul>
+      <p><strong>הקצב הוא חלק מהתפקיד.</strong> נכס שנחתם עליו בלעדיות ולא יצא לפרסום באותו יום מאבד את הימים החזקים שלו.</p>
+    </div>
+
+    <div class="duty">
+      <div class="duty-head"><span class="duty-key">ב</span><h4>תפעול מערך הפרסום השוטף</h4><span class="chip chip-set">מוגדר</span></div>
+      <ul>
+        <li>פרסום לפי חוקיות הפרסום שבסעיף 3, בקבוצות הוואטסאפ, בקבוצת המשרד, בפייסבוק ובאינסטגרם.</li>
+        <li>פייסבוק: פרסום מהעמוד העסקי ומהעמוד הפרטי של רחלי, ולאחריו הפצה לקבוצות גבעת זאב.</li>
+        <li>שמירה על מבנה המודעה המאושר: תבנית קאנבה, כותרת שיווקית, מחיר, מספר חדרים, תוספות מעניינות, פנייה לפרטים ולוגו, ומתחת לתמונה שורת "לפרטים נוספים" עם הלינק לדף הנחיתה.</li>
+        <li>שליפה מהירה של מודעות ממאגר המודעות בוואטסאפ.</li>
+        <li>עדכון שוטף בעקבות שינוי סטטוס: ירידת מחיר, מכירה או פקיעת בלעדיות מחייבות הסרה או תיקון ביד2, ברשות היחיד, ביוטיוב ובקול הגבעה, ועדכון בגיליון המעקב.</li>
+      </ul>
+    </div>
+
+    <div class="duty">
+      <div class="duty-head"><span class="duty-key">ג</span><h4>טיפול בלידים</h4><span class="chip chip-open">להחלטה: האם נכלל בתפקיד</span></div>
+      <p>באבחון סומן שזו הדליפה הפעילה כרגע, ושהגורם הקבוע שיטפל בלידים טרם נקבע. אם הטיפול נכנס לתפקיד, זה מה שהוא כולל:</p>
+      <ul>
+        <li>חזרה לכל פנייה שנכנסה.</li>
+        <li>בירור הצורך והשלמת פרטי החיפוש: שם מלא, שכונות, תקציב ומספר חדרים.</li>
+        <li>שאלה קבועה בכל שיחה: האם הפונה נמצא בקבוצת הוואטסאפ של המשרד, ואם לא, שליחת קישור ההצטרפות.</li>
+        <li>סיווג הליד כאקטואלי או לא אקטואלי.</li>
+        <li>עדכון מלא של כרטיס הלקוח בהומלי, בזמן אמת ככל שניתן.</li>
+        <li>חזרה ללידים שסיימו שיחה עם הסוכן הדיגיטלי ולא נוצר איתם קשר.</li>
+        <li>מעקב והמשך טיפול עד שהליד נסגר במערכת.</li>
+      </ul>
+      <p>אם הטיפול בלידים נכלל בתפקיד, הוא מחייב אוריינטציה מכירתית והיכרות מספקת עם אזור הפעילות. זה משנה את סוג המועמדת שאת מחפשת, ולכן ההחלטה הזו קודמת לפרסום המודעה.</p>
+    </div>
+
+    <div class="duty">
+      <div class="duty-head"><span class="duty-key">ד</span><h4>תיאומים ותמיכה במכירה</h4><span class="chip chip-set">מוגדר</span></div>
+      <ul>
+        <li>עזרה בתיאומים בין מוכרים לקונים, לפי הזמינות ביומן.</li>
+        <li>שליחת דפי הנחיתה, התמונות והסרטונים למתעניינים.</li>
+        <li>תיעוד לאחר הצגת נכס: אם רחלי לא מעדכנת בעצמה, המידע עובר למנהלת המשרד מיד אחרי הפגישה לצורך תיעוד בהיסטוריית הפעולות, שינוי סטטוס ופתיחת משימת המשך.</li>
+      </ul>
+    </div>
+
+    <div class="duty">
+      <div class="duty-head"><span class="duty-key">ה</span><h4>תיעוד ובקרה</h4><span class="chip chip-set">מוגדר</span></div>
+      <ul>
+        <li>בקרה שכל נכס פעיל מופיע בהומלי, ביד2, ברשות היחיד וביוטיוב.</li>
+        <li>החזקת גיליון מעקב הפרסומים כמראה של המצב בפועל, והצלבתו מול הומלי.</li>
+        <li>סגירת יום: מעבר על לידים שלא הושלמו במהלך היום והשלמתם.</li>
+        <li>עבודה מתוך היומן כמקור האמת לזמינות ולתכנון היום.</li>
+      </ul>
+    </div>
+
+    <div class="duty">
+      <div class="duty-head"><span class="duty-key">ו</span><h4>תיק נכס ואיסוף מסמכים</h4><span class="chip chip-open">להחלטה: תבנית ופלואו</span></div>
+      <p>היום כל מתעניין מקבל לינק להומלי עם תמונות, סרטון ומידע על הנכס. מי שממשיך לפגישה ונחתם על מסמך צפייה בנכס אמור לקבל אחר כך תיק נכס מעוצב, הכולל תמונות, פרטים ואישור זכויות שמתקבל מהבעלים. בגבעת זאב קיימים שני סוגים של אישורי זכויות.</p>
+      <p>שני דברים חסרים לפני שאפשר להכניס את זה לתפקיד: התבנית עצמה, שהיא עבודה מול גרפיקאית ולא עבודת ניהול משרד, והפלואו של איסוף המסמכים, כלומר אילו מסמכים נאספים מהמוכר ומהקונה, היתרים וארנונה בכללם, ובאיזה שלב. מרגע ששניהם נסגרים, מילוי התיק ומעקב אחר המסמכים נכנסים לתפקיד.</p>
+    </div>
+
+    <h3>מה לא נכלל בתפקיד</h3>
+    <p>הגבולות האלה חשובים לא פחות מהמשימות. בלעדיהם התפקיד מתרחב מעצמו והשכר מפסיק להתאים לו.</p>
+    <div class="stack">
+      <div class="panel">
+        <h4>העלאה ראשונית של נכס להומלי</h4>
+        <p>מבוצעת על ידי קרן. מנהלת המשרד נכנסת אחריה.</p>
+      </div>
+      <div class="panel">
+        <h4>עבודה גרפית מעבר לתבניות הקיימות</h4>
+        <p>שימוש בשלוש תבניות הקאנבה המאושרות הוא חלק מהתפקיד. עיצוב תיק הנכס, בניית תבניות חדשות ושינויים גרפיים משמעותיים הם עבודת גרפיקאית. אם תרצי, אעביר לך הפניה.</p>
+      </div>
+      <div class="panel">
+        <h4>החלטות מקצועיות</h4>
+        <p>תמחור, ניהול משא ומתן ואישור התאמות. ההתאמות מוכנות בטיוטה ומאושרות על ידך לפני שיוצאות.</p>
+      </div>
+      <div class="panel">
+        <h4>ייצוג מול לקוחות במקומך</h4>
+        <p>הצגת נכסים והחתמה על מסמכים נשארות אצלך ואצל קרן.</p>
+      </div>
+    </div>
+
+    <h3>הפרופיל: מה חייב להיות באדם הזה</h3>
+    <ul>
+      <li><strong>סדר ותיעוד לפני הכול.</strong> התפקיד עומד או נופל על כרטיס לקוח מעודכן בהומלי. מי שמתעדת בסוף השבוע במקום בזמן אמת לא תתאים כאן.</li>
+      <li><strong>קצב.</strong> נכס חדש יוצא לפרסום באותו יום. זה דורש מישהי שסוגרת משימות ולא גוררת אותן.</li>
+      <li><strong>יכולת להחזיק כמה דברים במקביל.</strong> נכס חדש, לידים נכנסים, קול הגבעה ותיאומים קורים באותו שבוע.</li>
+      <li><strong>שירותיות אמיתית.</strong> היא הקול הראשון שמתעניין שומע מהמשרד.</li>
+      <li><strong>עבודה מהנייד.</strong> חלק ניכר מהתפעול קורה מהאפליקציה.</li>
+      <li><strong>אוריינטציה מכירתית והיכרות עם האזור.</strong> נדרש רק אם הטיפול בלידים נכנס לתפקיד. אם המועמדת אינה מכירה את גבעת זאב וגבעון החדשה, נדרש מדריך עבודה מקומי כתנאי לכניסה לתפקיד.</li>
+    </ul>
+
+    <h3>החלטות שצריכות ליפול לפני שמפרסמים את המודעה</h3>
+    <p>אלה ההחלטות שנשארו פתוחות מפגישת סיכום האבחון. כל אחת מהן משנה את המודעה, את השכר או את סוג המועמדת.</p>
+    <ol>
+      <li>מי הגורם הקבוע שמטפל בלידים, ואם זו מנהלת המשרד.</li>
+      <li>מה בדיוק נכלל בתפקיד מתוך סעיפים א עד ו.</li>
+      <li>מה נשאר אצלך ואצל קרן, ומה עובר לספקים חיצוניים.</li>
+      <li>היקף המשרה, שעות המענה והזמינות הנדרשת.</li>
+      <li>האם נדרש ליווי בתקופת החפיפה וההטמעה, ובאיזה היקף.</li>
+    </ol>
+  </section>
+
+  <!-- 3 -->
+  <section id="s3">
+    <div class="sechead"><span class="secnum">3</span><h2>שגרות העבודה</h2></div>
+    <p class="lead">השגרות האלה הן התפקיד בפועל. כדאי להעביר אותן למועמדת שנבחרת כבר בחפיפה, ולא לתאר אותן במילים.</p>
+
+    <h3>שגרת נכס חדש</h3>
+    <p>רשימת הפעולות מרגע חתימת הבלעדיות. סמני תוך כדי עבודה, הסימון נשמר בדפדפן שלך.</p>
+    <div class="checkbar">
+      <output id="c1-out">0 מתוך 10</output>
+      <button class="btn" type="button" data-clear="c1">נקה סימונים</button>
+    </div>
+    <ul class="checklist" data-list="c1">
+      <li><label><input type="checkbox"><span class="q">קרן העלתה את הנכס להומלי</span></label></li>
+      <li><label><input type="checkbox"><span class="q">התמונות והסרטון התקבלו</span></label></li>
+      <li><label><input type="checkbox"><span class="q">שלוש מודעות קאנבה, אחת לכל תבנית, נשמרו בתיקיית הנכס</span></label></li>
+      <li><label><input type="checkbox"><span class="q">אלבום גוגל נפתח<span class="why">שם הרחוב והעיר בלבד, בלי מספר בית</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">הסרטון תוזמן ליוטיוב</span></label></li>
+      <li><label><input type="checkbox"><span class="q">הסרטון הוזן בהומלי בקבצים מצורפים, לחיצה על 1, שיתוף דירה חדשה</span></label></li>
+      <li><label><input type="checkbox"><span class="q">הנכס עלה ליד2 ולאתר רשות היחיד</span></label></li>
+      <li><label><input type="checkbox"><span class="q">לינק לסוכן הדיגיטלי נוצר עם מספר הנכס<span class="why">ההודעה האוטומטית: היי, ראיתי נכס מספר 62, אשמח לקבל תמונות</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">קבוצת וואטסאפ לנכס נפתחה</span></label></li>
+      <li><label><input type="checkbox"><span class="q">הנכס הוזן בגיליון מעקב הפרסומים, וטיוטת ההתאמות עברה לאישור רחלי</span></label></li>
+    </ul>
+
+    <h3>חוקיות הפרסום</h3>
+    <p>החוקיות תועדה במהלך האבחון ונמצאת בגיליון המעקב. זה המבנה השבועי:</p>
+    <div class="tablewrap">
+      <table>
+        <thead>
+          <tr><th>יום</th><th>שעות פרסום</th><th>מה קורה בנוסף</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="day">א׳</td><td class="hours">08:00-09:00 · 13:00-14:00 · 15:00-16:00</td><td>פרסום שוטף בקבוצות</td></tr>
+          <tr><td class="day">ב׳</td><td class="hours">אין</td><td>אין פרסום בקבוצות וואטסאפ</td></tr>
+          <tr><td class="day">ג׳</td><td class="hours">08:00-09:00 · 13:00-14:00 · 15:00-16:00</td><td>פרסום שוטף בקבוצות</td></tr>
+          <tr><td class="day">ד׳</td><td class="hours">08:00-09:00 · 13:00-14:00 · 15:00-16:00</td><td>אחת לשבועיים: מודעת קול הגבעה</td></tr>
+          <tr><td class="day">ה׳</td><td class="hours">08:00-09:00 · 13:00-14:00 · 15:00-16:00</td><td>סיכום שבועי</td></tr>
+          <tr><td class="day">מוצ״ש</td><td class="hours">לפי הפרסום</td><td>וואטסאפ, פייסבוק ואינסטגרם</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>השגרה היומית</h3>
+    <ol class="flow">
+      <li><strong>פתיחת יום מהיומן.</strong> מה יש היום, אילו פגישות ונסיעות, מה דורש תיאום או הכנה.</li>
+      <li><strong>פרסומים לפי החוקיות</strong> בחלונות השעות של אותו יום.</li>
+      <li><strong>נכס חדש, אם נכנס,</strong> יוצא לפרסום מלא באותו יום לפי שגרת נכס חדש.</li>
+      <li><strong>לידים בזמן אמת.</strong> חזרה, בירור, סיווג ועדכון כרטיס הלקוח בהומלי מיד אחרי השיחה.</li>
+      <li><strong>שיחת עדכון יומית</strong> עם רחלי.</li>
+      <li><strong>סגירת יום.</strong> מעבר על לידים שלא הושלמו והשלמתם, ומעבר על מה שנשאר פתוח למחר.</li>
+    </ol>
+
+    <h3>השגרה השבועית</h3>
+    <p><strong>יום חמישי, סיכום שבועי קבוע:</strong> מעבר על המשימות הפתוחות, קידומן, ומיקוד לשבוע הבא.</p>
+
+    <h3>השגרה הדו־שבועית: מודעת "קול הגבעה"</h3>
+    <p>ביום רביעי, כדי שלא תיגלוש ליום חמישי.</p>
+    <ol class="flow">
+      <li>קבלת המודעה מכל הגבעה עם רשימת מה שאמור לעלות.</li>
+      <li>הקבלה מול גיליון העבודה ומול הומלי: ירידות מחיר, נכסים שירדו מפרסום ונכסים שנוספו.</li>
+      <li>עדכון הפרטים והעברת הממצאים לרחלי לאישור.</li>
+      <li>העברת המידע המסודר, קבלת הטיוטה להדפסה, והעברתה לרחלי לאישור סופי.</li>
+    </ol>
+
+    <h3>נהלים שנקבעו בפגישת סיכום האבחון, 1.9.2026</h3>
+    <div class="stack">
+      <div class="panel">
+        <h4>תיעוד ליד לאחר שיחה</h4>
+        <p>עדכון כרטיס הלקוח בהומלי בזמן אמת ככל שניתן, כולל אזור, מספר חדרים, תקציב ומידע נדרש להמשך טיפול והתאמות. לידים שלא הושלמו במהלך היום נבדקים בסגירת היום. הנוהל חל על שיחות של רחלי ושל קרן כאחת.</p>
+      </div>
+      <div class="panel">
+        <h4>נוהל לאחר הצגת נכס לקונה</h4>
+        <p>מיד אחרי ההצגה: כניסה לכרטיס הקונה בהומלי, תיעוד בהיסטוריית הפעולות איזה נכס הוצג ומה הייתה התגובה, שינוי סטטוס, ופתיחת משימת פולו־אפ או תזכורת לפי הצורך.</p>
+      </div>
+      <div class="panel">
+        <h4>היומן הוא מקור האמת</h4>
+        <p>פגישות, נסיעות, התחייבויות וזמני עבודה מוזנים ביומן באופן שוטף, כדי שמנהלת המשרד תוכל להבין את תמונת היום ולנהל את המשימות והתזכורות בהתאם.</p>
+      </div>
+      <div class="panel">
+        <h4>ניתוב פניות פרטיות</h4>
+        <p>פניות שמגיעות ישירות לרחלי ולא דרך מסלול הסוכן ינותבו ככל האפשר לערוץ הייעודי, כדי שייכנסו למסלול שניתן לתעד ולבקר.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 -->
+  <section id="s4">
+    <div class="sechead"><span class="secnum">4</span><h2>מודעת הפרסום</h2></div>
+    <p>המודעה תיבנה בקאנבה שלי לפי הגדרת התפקיד שבסעיף 2, ואז תועבר לקאנבה שלך כך שהיא נשארת אצלך, ותוכלי לערוך אותה ולפרסם אותה שוב בעתיד בלי לחזור אליי.</p>
+    <div class="slot">
+      <p class="slotlabel">קישור למודעה</p>
+      <p class="slotlink">הקישור ייכנס לכאן אחרי שההחלטות בסעיף 2 ייסגרו</p>
+    </div>
+    <div class="note">
+      <p>המודעה תלויה בשלוש החלטות: האם הטיפול בלידים נכלל בתפקיד, היקף המשרה ושעות המענה, וטווח השכר. בלעדיהן היא תמשוך מועמדות שלא מתאימות, ותבזבז לך את זמן הסינון.</p>
+    </div>
+    <h4>איך מעבירים לקאנבה שלך</h4>
+    <ol class="flow">
+      <li>המודעה נבנית בקאנבה שלי על גבי תבנית ייעודית.</li>
+      <li>העיצוב משותף אלייך כעורכת, או מועתק ישירות לחשבון שלך.</li>
+      <li>את שומרת עותק בתיקיית הגיוס בקאנבה שלך. משם הוא שלך לכל דבר.</li>
+    </ol>
+  </section>
+
+  <!-- 5 -->
+  <section id="s5">
+    <div class="sechead"><span class="secnum">5</span><h2>ממליצים: ההמלצה שלי והשאלות</h2></div>
+
+    <p class="lead">ההמלצה שלי היא לדבר עם הממליצים אחרי שהחלטת על מועמדת, לפני שאת סוגרת איתה.</p>
+    <p>כשמדברים עם ממליצים לפני ההחלטה, השיחה נוטה לאשר את מה שכבר רוצים לשמוע. אחרי שהחלטת, את מגיעה לשיחה עם שאלות אחרות: מה יהיה קשה איתה, מה יידרש ממך, ומה כדאי לסגור מראש. גם אם התשובות טובות, יצאת עם מפה לחפיפה.</p>
+
+    <h4>איך לנהל את השיחה</h4>
+    <ul>
+      <li>שתי שיחות, ולפחות אחת מהן עם מי שהייתה המנהלת הישירה שלה. לא חברה, לא קולגה.</li>
+      <li>רבע שעה מספיקה.</li>
+      <li>לפתוח בכך שהחלטת לקחת אותה, ואת רוצה להיכנס לזה נכון. זה משחרר את הממליצה מהצורך להגן עליה, והתשובות נעשות ישירות יותר.</li>
+      <li>לא לשאול אם היא טובה. לשאול מה היא עשתה במצב מסוים.</li>
+      <li>לשתוק אחרי שאלה. השתיקה מביאה את החצי השני של התשובה.</li>
+    </ul>
+
+    <p>השאלות מסודרות לפי מה שחשוב לך בתפקיד הזה. סמני תוך כדי השיחה.</p>
+    <div class="checkbar">
+      <output id="c2-out">0 מתוך 23</output>
+      <button class="btn" type="button" data-clear="c2">נקה סימונים</button>
+    </div>
+    <ul class="checklist" data-list="c2">
+      <li><label><input type="checkbox"><span class="q">מה היה התפקיד שלה אצלך, באילו תאריכים, ולמה היא סיימה?<span class="why">פתיחה. גם מיישרת עובדות מול קורות החיים</span></span></label></li>
+
+      <li><label><input type="checkbox"><span class="q"><strong>אופי.</strong> תארי לי יום עמוס במיוחד אצלכם. איך היא נראתה בסוף יום כזה?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">כשמשהו לא היה מוגדר לה, מה היא עשתה? חיכתה, שאלה, או החליטה לבד?<span class="why">בתפקיד הזה יהיו הרבה דברים לא מוגדרים בהתחלה</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">הייתה פעם שהיא טעתה. גילית את זה ממנה או לבד?<span class="why">מי שמדווחת על טעות בעצמה, אפשר לסמוך עליה שתעדכן כרטיס</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">מה היית צריכה להגיד לה יותר מפעם אחת?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">איך היא קיבלה הערה על משהו שלא נעשה כמו שצריך?</span></label></li>
+
+      <li><label><input type="checkbox"><span class="q"><strong>זמינות.</strong> באילו שעות היא הייתה זמינה בפועל, לא באילו שעות סוכם?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">אם היית שולחת לה הודעה בשבע בערב על משהו דחוף, מה היה קורה?<span class="why">בנדל״ן מתעניינים פונים אחרי שעות העבודה</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">כמה פעמים היא נעדרה בהתראה קצרה, ואיך זה נסגר?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">היא עבדה מהנייד? איך היא הסתדרה עם זה?<span class="why">רוב התפעול כאן קורה מהאפליקציה</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">היו תקופות שבהן היא הייתה פחות זמינה? מה קרה אז?</span></label></li>
+
+      <li><label><input type="checkbox"><span class="q"><strong>אנרגיות וקצב.</strong> משימה שנכנסת בבוקר וצריכה להיסגר עד סוף היום. היא סוגרת אותה או שהיא נגררת למחר?<span class="why">נכס חדש חייב לצאת לפרסום באותו יום</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">כמה דברים במקביל היא הצליחה להחזיק בלי שדברים נופלים?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">מה קרה לאיכות העבודה שלה בתקופה עמוסה?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">מי דחף את העבודה קדימה, את או היא?<span class="why">התשובה הזו שווה את כל השיחה</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">מה נתן לה אנרגיה בעבודה, ומה שחק אותה?</span></label></li>
+
+      <li><label><input type="checkbox"><span class="q"><strong>שירותיות.</strong> איך לקוחות דיברו עליה?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">ספרי לי על שיחה עם לקוח מתוסכל. מה היא עשתה?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">היא ידעה להגיד ללקוח לא בלי לפגוע בו?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">כשלקוח שאל משהו שהיא לא ידעה, מה היא עשתה?<span class="why">מועמדת שלא מכירה את גבעת זאב תהיה שם הרבה בהתחלה</span></span></label></li>
+
+      <li><label><input type="checkbox"><span class="q"><strong>תיעוד ובקרה.</strong> היא עבדה עם מערכת? עדכנה אותה בזמן אמת או בסוף השבוע?</span></label></li>
+      <li><label><input type="checkbox"><span class="q">אם הייתי נכנסת אחריה למערכת, הייתי מבינה מה קרה עם לקוח בלי לשאול אותה?<span class="why">זה בדיוק הפער שאנחנו סוגרות בהומלי</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">משהו נפל בין הכיסאות בזמן שלה. מה היה, ומה נעשה כדי שזה לא יחזור?</span></label></li>
+
+      <li><label><input type="checkbox"><span class="q"><strong>סגירה.</strong> אם היה לך תפקיד מתאים היום, היית מחזירה אותה?<span class="why">אם יש היסוס לפני התשובה, שאלי מה גרם להיסוס</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">מה היית עושה אחרת אם היית מגייסת אותה מהתחלה?<span class="why">זו רשימת המשימות שלך לחפיפה</span></span></label></li>
+      <li><label><input type="checkbox"><span class="q">באיזה סוג עבודה היא לא תצליח?</span></label></li>
+    </ul>
+
+    <div class="note">
+      <p><strong>מה לשמוע מעבר למילים.</strong> ממליצה שאומרת "היא נהדרת" ולא נותנת דוגמה אחת מספרת לך משהו. שתיקה ארוכה לפני "כן, הייתי מחזירה אותה" מספרת לך יותר. ותשובה שחוזרת פעמיים על אותו נושא, גם אם היא מנוסחת יפה, היא הדבר שכדאי לסגור מראש בחפיפה.</p>
+    </div>
+  </section>
+
+  <!-- 6 -->
+  <section id="s6">
+    <div class="sechead"><span class="secnum">6</span><h2>מה עדיין פתוח</h2></div>
+    <p class="lead">ריכוז כל הסעיפים המסומנים <span class="chip chip-open">להחלטה</span>, לפי מי שצריך להכריע.</p>
+
+    <h3>אצלך</h3>
+    <ul>
+      <li>חמש ההחלטות שבסוף סעיף 2, ובראשן מי מטפל בלידים.</li>
+      <li>האם להוריד את ארוגות מרשימת הפרסום.</li>
+      <li>תבנית תיק הנכס, מול גרפיקאית.</li>
+      <li>פלואו איסוף המסמכים: אילו מסמכים נאספים מהמוכר ומהקונה, ובאיזה שלב.</li>
+    </ul>
+
+    <h3>ממתין לתשובות נדב</h3>
+    <p>נשלחו ב-3.9 ועדיין לא נענו. עד שיתקבלו תשובות, מסלול הפנייה דרך הסוכן אינו סגור, ולכן אינו נכנס להגדרת התפקיד.</p>
+    <ul>
+      <li>לאן עוברת פנייה שהסוכן מעביר לטיפול אנושי, ומי מקבל התראה.</li>
+      <li>איזה מידע נשמר אוטומטית בהומלי אחרי שיחה עם הסוכן.</li>
+      <li>האם הסוכן יכול להגיע עד קביעת פגישה ביומן, וסנכרון ליומן של רחלי.</li>
+      <li>בקרה על פניות שהועברו לטיפול אנושי וסגירת המעגל.</li>
+      <li>הפעלת סוכן בעקבות שיחה שלא נענתה.</li>
+      <li>סוכנים לתיאומי פגישות ולעוזר אישי תפעולי.</li>
+      <li>ההבדל בעלויות ובתוצאה בין קמפיין לבין שליחה לדפי נחיתה.</li>
+      <li>הגדרת התראות לסיום בלעדיות ואפשרות לערוך אותן.</li>
+      <li>קישור מהתמלול בוואטסאפ ישירות לכרטיס הלקוח בהומלי.</li>
+      <li>החתמה על ראיית נכס שמופיעה בכרטיס הקונה ובכרטיס הנכס גם יחד.</li>
+      <li>חיפוש באפליקציה לפי נכסים בבלעדיות המשרד.</li>
+      <li>פולו־אפ שנרשם באפליקציה ונכנס ליומן גוגל.</li>
+    </ul>
+
+    <h3>להוסיף למייל לנדב</h3>
+    <p>עלו במחברת ולא נשלחו עדיין.</p>
+    <div class="stack">
+      <div class="panel panel-open">
+        <h4>הזנה אוטומטית של פרטים אחרי החתמה</h4>
+        <p>המקרה של גיל שמעון, לקוח שנעלם מהחיפוש בקונים. אם החתמנו אותו, השם המלא ותעודת הזהות אמורים להיות בכרטיס. למה הם לא מוזנים אוטומטית אחרי החתמה?</p>
+      </div>
+      <div class="panel panel-open">
+        <h4>הערה או הוראה בכרטיס אחרי החתמה</h4>
+        <p>האם אפשר להוסיף הערה או הוראה בכרטיס הנכס לאחר שרחלי החתימה.</p>
+      </div>
+      <div class="panel panel-open">
+        <h4>היסטוריית הנכסים שהקונה ראה</h4>
+        <p>רחלי רוצה לראות בכרטיס הקונה באילו נכסים הוא ביקר.</p>
+      </div>
+      <div class="panel panel-open">
+        <h4>פולו־אפ מהאפליקציה בלי אפשרות לשעה</h4>
+        <p>ניסיון להוסיף פולו־אפ לליד מהאפליקציה לא נכנס ליומן ולא אפשר להזין שעה.</p>
+      </div>
+      <div class="panel panel-open">
+        <h4>סטטוס להצעה ולהצעה נגדית</h4>
+        <p>כשמישהו מגיש הצעה, שיהיה סטטוס בכרטיס הלקוח, ואחריו רישום ההצעה הנגדית.</p>
+      </div>
+      <div class="panel panel-open">
+        <h4>כרטיס דיגיטלי על שיחה שלא נענתה</h4>
+        <p>רחלי מפספסת שיחה, והמתקשר מקבל אוטומטית "היי, הגעתם לרחלי נדל״ן, אשמח לדעת במה אתם מתעניינים" יחד עם הכרטיס הדיגיטלי.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="sig">
+    <b>ניבה חן</b>
+    מסדרת עסקים · 055-8874041 · niva@mymisrad.co.il
+  </div>
+
+</main>
+
+<aside class="railwrap">
+  <nav class="rail" aria-label="ניווט במסמך">
+    <p>במסמך</p>
+    <a href="#s1"><span>1</span>למה המסמך הזה</a>
+    <a href="#s2"><span>2</span>הגדרת התפקיד</a>
+    <a href="#s3"><span>3</span>שגרות העבודה</a>
+    <a href="#s4"><span>4</span>מודעת הפרסום</a>
+    <a href="#s5"><span>5</span>ממליצים והשאלות</a>
+    <a href="#s6"><span>6</span>מה עדיין פתוח</a>
+  </nav>
+</aside>
+</div>
+
+<script>
+(function () {
+  var KEY = "rachel-om-v1:";
+
+  function read(name) {
+    try {
+      var raw = localStorage.getItem(KEY + name);
+      return raw ? JSON.parse(raw) : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function write(name, arr) {
+    try {
+      localStorage.setItem(KEY + name, JSON.stringify(arr));
+    } catch (e) {
+      /* private window or blocked storage: the page still works, nothing is remembered */
+    }
+  }
+
+  var lists = document.querySelectorAll("[data-list]");
+
+  Array.prototype.forEach.call(lists, function (list) {
+    var name = list.getAttribute("data-list");
+    var boxes = list.querySelectorAll('input[type="checkbox"]');
+    var out = document.getElementById(name + "-out");
+    var clear = document.querySelector('[data-clear="' + name + '"]');
+
+    function paint() {
+      var done = 0;
+      Array.prototype.forEach.call(boxes, function (b) {
+        if (b.checked) done++;
+      });
+      if (out) out.textContent = done + " מתוך " + boxes.length;
+    }
+
+    function save() {
+      var state = [];
+      Array.prototype.forEach.call(boxes, function (b, i) {
+        if (b.checked) state.push(i);
+      });
+      write(name, state);
+    }
+
+    var saved = read(name);
+    Array.prototype.forEach.call(boxes, function (b, i) {
+      if (saved.indexOf(i) !== -1) b.checked = true;
+      b.addEventListener("change", function () {
+        save();
+        paint();
+      });
+    });
+
+    if (clear) {
+      clear.addEventListener("click", function () {
+        Array.prototype.forEach.call(boxes, function (b) {
+          b.checked = false;
+        });
+        save();
+        paint();
+      });
+    }
+
+    paint();
+  });
+})();
+</script>
