@@ -750,7 +750,7 @@ body.editing .checkbar .btn{pointer-events:none;opacity:.45}
         <div class="subbody">
           <p>מסודרות לפי מה שחשוב בתפקיד הזה. סימון תוך כדי השיחה.</p>
           <div class="checkbar">
-            <output id="c2-out">0 מתוך 25</output>
+            <output id="c2-out">0 מתוך 26</output>
             <button class="btn" type="button" data-clear="c2">נקה סימונים</button>
           </div>
           <ul class="checklist" data-list="c2">
@@ -1053,6 +1053,8 @@ body.editing .checkbar .btn{pointer-events:none;opacity:.45}
   var snapshot = null;
   var editing = false;
 
+  if (!bar || !main || !btnEdit || !btnSave || !btnCancel || !status) return;
+
   function say(t) { status.textContent = t; }
 
   function enter() {
@@ -1083,9 +1085,21 @@ body.editing .checkbar .btn{pointer-events:none;opacity:.45}
   function buildDoc() {
     var clone = document.body.cloneNode(true);
 
-    Array.prototype.forEach.call(clone.querySelectorAll("[data-chrome]"), function (el) {
-      if (el.id === "chrome") el.parentNode.removeChild(el);
-    });
+    /* The toolbar stays in the saved version, reset to how it opens, so the
+       document it saves can still be edited. Removing it here would make every
+       saved version read-only. */
+    var savedBar = clone.querySelector("#chrome");
+    if (savedBar) {
+      savedBar.setAttribute("hidden", "");
+      var s = savedBar.querySelector("#edit-status");
+      if (s) s.textContent = "אפשר לערוך את הטקסט ולשמור גרסה חדשה";
+      var e1 = savedBar.querySelector("#btn-edit");
+      if (e1) { e1.removeAttribute("hidden"); e1.disabled = false; }
+      var e2 = savedBar.querySelector("#btn-save");
+      if (e2) { e2.setAttribute("hidden", ""); e2.disabled = false; }
+      var e3 = savedBar.querySelector("#btn-cancel");
+      if (e3) e3.setAttribute("hidden", "");
+    }
 
     var edited = clone.querySelector("main");
     if (edited) {
