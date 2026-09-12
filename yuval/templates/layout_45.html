@@ -1,0 +1,37 @@
+<style>
+  body{--W:1080px;--H:1350px;--cta-gap:16px}
+  .photo{inset:0;width:1080px;height:1350px;--photo-pos:16% 30%}
+  .wash{position:absolute;inset:0;
+    background:linear-gradient(258deg,
+      rgba(246,242,239,.97) 0%, rgba(246,242,239,.94) 38%,
+      rgba(246,242,239,.66) 50%, rgba(246,242,239,.14) 62%,
+      rgba(246,242,239,0) 72%);}
+  .col{position:absolute;top:78px;right:58px;width:590px;display:flex;flex-direction:column;align-items:flex-end}
+  .headline{font-size:66px}
+  .headline .accent{margin-top:4px}
+  .swoosh{width:250px;margin:14px 0 26px 0}
+  .swoosh path{stroke-width:8}
+  .sub{font-size:29px}
+  .sticky{width:326px;height:246px;font-size:48px;padding:24px;
+    transform:rotate(-4deg);margin:46px 10px 0 0}
+  .bodytext{font-size:28px;margin-top:52px}
+  .cta{margin-top:44px;font-size:29px;padding:25px 38px}
+  .cta .chev{width:13px;height:22px}
+</style>
+<img class="photo" src="__PHOTO__">
+<div class="wash"></div>
+<div class="col">
+  <h1 class="headline">
+    <span class="nb">__H1__</span>
+    <span class="nb">__H2__</span>
+    <span class="nb accent">__H3__</span>
+  </h1>
+  <svg class="swoosh" viewBox="0 0 250 24"><path d="M4 18 C66 4, 182 4, 246 13"/></svg>
+  <p class="sub">__SUB__</p>
+  <div class="sticky">__STICKY__</div>
+  <p class="bodytext">__BODY__</p>
+  <div class="cta">
+    <span>__CTA__</span>
+    <svg class="chev" viewBox="0 0 13 22"><path d="M10 2 L3 11 L10 20"/></svg>
+  </div>
+</div>

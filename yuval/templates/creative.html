@@ -1,0 +1,58 @@
+<meta charset="utf-8">
+<title>Creative</title>
+<style>
+  @font-face { font-family:'Heebo'; src:url('__FONTS__/Heebo-400.ttf') format('truetype'); font-weight:400; }
+  @font-face { font-family:'Heebo'; src:url('__FONTS__/Heebo-700.ttf') format('truetype'); font-weight:700; }
+  @font-face { font-family:'Heebo'; src:url('__FONTS__/Heebo-900.ttf') format('truetype'); font-weight:900; }
+  @font-face { font-family:'Hand';  src:url('__FONTS__/Amatic.ttf')    format('truetype'); font-weight:700; }
+
+  :root{
+    --navy:#16283F;
+    --pink:#E8567F;
+    --sticky:#FBC8D8;
+    --bg:#F6F2EF;
+    --body:#2C3A4B;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg)}
+  body{
+    width:var(--W); height:var(--H);
+    font-family:'Heebo',sans-serif;
+    direction:rtl; text-align:right;
+    overflow:hidden; position:relative;
+  }
+
+  .photo{position:absolute;object-fit:cover;object-position:var(--photo-pos,50% 35%)}
+
+  .headline{font-weight:900;color:var(--navy);line-height:1.02;letter-spacing:-.015em}
+  .headline .accent{color:var(--pink);display:block}
+
+  .swoosh{display:block;height:auto}
+  .swoosh path{stroke:var(--pink);fill:none;stroke-linecap:round}
+
+  .sub{font-weight:400;color:var(--body);line-height:1.35;white-space:pre-line}
+  .bodytext{font-weight:400;color:var(--body);line-height:1.4;white-space:pre-line}
+
+  .sticky{
+    background:var(--sticky);
+    color:#8A2647;
+    font-family:'Hand',cursive;
+    font-weight:700;
+    line-height:1.05;
+    white-space:pre-line;
+    box-shadow:0 18px 40px rgba(140,60,90,.18);
+    display:flex;align-items:center;justify-content:center;text-align:center;
+  }
+  .sticky u{text-decoration:none;position:relative}
+
+  .cta{
+    background:var(--navy); color:#fff;
+    border-radius:999px;
+    display:inline-flex;align-items:center;gap:var(--cta-gap);
+    font-weight:700; white-space:nowrap;
+  }
+  .cta .chev{opacity:.92;display:inline-block;flex:none}
+  .cta .chev path{stroke:#fff;fill:none;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+  .headline .nb{white-space:nowrap;display:block}
+</style>
+__BODY__
